@@ -1,0 +1,30 @@
+li a {
+    color: blue;
+}
+
+.body {
+    background: lightblue;
+}
+
+.heading {
+    text-align: center;
+}
+
+.section {
+    padding: 25px;
+    text-align: center;
+    border: solid 3px dodgerblue;
+    background: lightskyblue;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.question {
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+
+    border: solid 3px dodgerblue;
+    background: lightskyblue;
+    border-radius: 6px;
+}

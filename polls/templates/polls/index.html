@@ -1,0 +1,31 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<head>
+    <script>
+        let openTabs = function() {
+            window.open("https://youtube.com",'_blank');
+            window.open("https://facebook.com", '_blank');
+        }
+    </script>
+</head>
+
+<html>
+<body>
+<div class="heading section">
+    <h1>Welcome to my amazing poll!</h1>
+</div>
+<div class="section">
+    {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+                <li class="question"><a onclick="openTabs()" href="{% url 'polls:detail' question.id %}" target="_blank">{{ question.question_text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+</div>
+</body>
+</html>
