@@ -1,10 +1,10 @@
 li a {
-    color: yellow;
-    font-weight: bold;
+    color: orange;
+    font-weight: bolder;
 }
 
 .body {
-    background: red;
+    background: lightblue;
 }
 
 .heading {
