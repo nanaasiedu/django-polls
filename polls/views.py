@@ -2,18 +2,21 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
-from polls.models import Question, Choice
+from polls.models import Question, Choice, QuestionType
 
 from .models import Choice, Question
 
 
-class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'latest_question_list'
+def index(request):
+    questions_by_type = []
 
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+    for question_type in QuestionType:
+        questions_by_type.append(
+            (question_type.label, Question.objects.filter(type=question_type).order_by('question_text'))
+        )
+
+    context = {'questions_by_type': questions_by_type}
+    return render(request, 'polls/index.html', context)
 
 
 class DetailView(generic.DetailView):

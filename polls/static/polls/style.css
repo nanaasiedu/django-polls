@@ -1,10 +1,5 @@
-li a {
-    font-weight: bolder;
-    color: yellow;
-}
-
-.body {
-    background: lightblue;
+body {
+    background-color: lightblue;
 }
 
 .heading {
@@ -18,12 +13,29 @@ li a {
     background: lightskyblue;
     border-radius: 6px;
     margin-bottom: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.types {
+    display: table;
+    width:100%
+}
+
+.question-type {
+    display: table-cell;
+    float: left;
+    width: fit-content;
+    margin-right: 10px;
 }
 
 .question {
+
+    display: block;
     padding: 10px;
-    text-align: center;
     width: 150px;
+    margin-bottom: 10px;
 
     border: solid 3px dodgerblue;
     background: lightskyblue;

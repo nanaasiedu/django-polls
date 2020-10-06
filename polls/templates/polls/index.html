@@ -1,12 +1,23 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+{#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">#}
 
 <head>
     <script>
         let openTabs = function() {
             window.open("https://youtube.com",'_blank');
             window.open("https://facebook.com", '_blank');
+        }
+
+        let openAllTabs = function() {
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]')
+            console.log(checkboxes[0].checked)
+            for (var checkbox of checkboxes) {
+                if (checkbox.checked) {
+                    window.open(checkbox.value, '_blank');
+                }
+            }
         }
     </script>
 </head>
@@ -17,15 +28,27 @@
     <h1>Welcome to my fantastic poll!</h1>
 </div>
 <div class="section">
-    {% if latest_question_list %}
-        <ul>
-            {% for question in latest_question_list %}
-                <li class="question"><a onclick="openTabs()" href="{% url 'polls:detail' question.id %}" target="_blank">{{ question.question_text }}</a></li>
+{% if questions_by_type %}
+    <div class="types mb-5">
+        {% for question_type, questions_of_type in questions_by_type %}
+            <div class="question-type">
+            {{ question_type }}
+            {% for question in questions_of_type %}
+                <div class="question">
+                    <input class="question-check" type="checkbox" value="https://google.com">
+                    <a onclick="openTabs()" href="{% url 'polls:detail' question.id %}" target="_blank">
+                        {{ question.question_text }}
+                    </a>
+                </div>
             {% endfor %}
-        </ul>
+            </div>
+        {% endfor %}
+    </div>
+    <a onclick="openAllTabs()"> OPEN ALL TABS </a>
     {% else %}
         <p>No polls are available.</p>
     {% endif %}
+
 </div>
 </body>
 </html>
