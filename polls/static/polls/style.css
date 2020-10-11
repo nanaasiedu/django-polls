@@ -24,20 +24,26 @@ body {
 }
 
 .question-type {
-    display: table-cell;
     float: left;
     width: fit-content;
     margin-right: 10px;
+    display: inline-flex;
+    writing-mode: vertical-lr;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    max-height: 200px;
 }
 
 .question {
-
     display: block;
     padding: 10px;
     width: 150px;
     margin-bottom: 10px;
-
-    border: solid 3px dodgerblue;
+    break-inside: avoid;
+    border: solid 3px #1e90ff;
     background: lightskyblue;
     border-radius: 6px;
+    height: 20px;
+    writing-mode: horizontal-tb;
+    margin-right: 10px;
 }

@@ -31,8 +31,8 @@
 {% if questions_by_type %}
     <div class="types mb-5">
         {% for question_type, questions_of_type in questions_by_type %}
+{#            {{ question_type }}#}
             <div class="question-type">
-            {{ question_type }}
             {% for question in questions_of_type %}
                 <div class="question">
                     <input class="question-check" type="checkbox" value="https://google.com">
