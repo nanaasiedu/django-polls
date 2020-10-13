@@ -1,0 +1,5 @@
+---
+applications:
+- name: django-polls
+  buildpack: python_buildpack
+  command: gunicorn testsite.wsgi #daphne testsite.asgi:application -p 8080

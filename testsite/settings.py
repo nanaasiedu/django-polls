@@ -23,21 +23,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '1no^6^=+z0y&l%)n8_dvya+$#xd@5bgivyto1qrm1tfzv6&s2q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'django-polls.cfapps.io',
+    '127.0.0.1'
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'forms.apps.FormsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
